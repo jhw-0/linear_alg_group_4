@@ -15,8 +15,8 @@
   \
   *_submitted by_*: \
   _Group 4_ \
-  David Chazbani - \_\_\_ student\
-  Jared Wallace - Applied mathematics student
+  David Chazbani - student\
+  Jared Wallace - student\
   \
   \
   \

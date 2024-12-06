@@ -27,7 +27,9 @@
       q0-q1: (curve: 0),
       q2-q3: (curve: 0),
       q3-q4: (curve: 0),
-      q2-q4: (curve: 0),
+      q2-q4: (curve: -0.618),
+      q2-q0: (curve: 0.618),
+      q1-q3: (curve: 0.618),
       q0-q2: (curve: -1.618, label: (dist: -0.33))          
     )
   )
