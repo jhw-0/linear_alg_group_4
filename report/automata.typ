@@ -1,4 +1,5 @@
 #import "@preview/finite:0.3.2": *
+// make nfa a function so that nfa and pa can be called from same literal unit
 #let nfa = automaton(
     (
       q0: (q0: (2.5, 3), q1: (1, 1.5), q2: (1.5, 2, 2.5)),
@@ -27,6 +28,6 @@
       q2-q3: (curve: 0),
       q3-q4: (curve: 0),
       q2-q4: (curve: 0),
-      q0-q2: (curve: -1.5, label: (dist: -0.33))          
+      q0-q2: (curve: -1.618, label: (dist: -0.33))          
     )
   )

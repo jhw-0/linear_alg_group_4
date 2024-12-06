@@ -1,0 +1,7 @@
+prob_auto:
+    type: Web
+    title: Probabilistic automaton
+    author: Wikipedia contributors
+    url:
+        value: https://en.wikipedia.org/wiki/Probabilistic_automaton
+        date: 2024-12-06
