@@ -34,7 +34,56 @@
         
   ]
   #answer()[
-    There is a board with six spaces defined by set $Q = {0, 1, 2, 3, 4, 5}$. Call each $q in Q$ a "game-state" or "space". Each space in $Q$ is indicated on the board and in speaking about the game by the bijective function $R_Q: Q arrow Q'$ represented by the relation $R_Q = {(0, cal(S)), (1, cal(A)), (2, cal(B)), (3, cal(R)), (4, cal(C)), (5, cal(F))}$. Call any element $q' in Q'$ a "space". At the start of the game, each player starts with a piece on space $S$. Each turn, the players of the game take turns spinning a spinner that has an equal probability of landing on any number in the set $beta = {0, 1/2, dots, 3}$. Call any $b in beta$ an "input"" or "spin-result".
+    - The game takes place on a board entirely comprised of six spaces defined by set $Q = {0, 1, 2, 3, 4, 5}$. \
+      - Call each $q in Q$ a "game-state".
+    - Each space in $Q$ is indicated on the board, and in conversation and writing, by the elements mapped-to by the bijective function $R_Q: Q arrow Q_alpha$ represented by the relation $R_Q = {(0, cal(S)), (1, cal(A)), (2, cal(B)), (3, cal(R)), (4, cal(C)), (5, cal(F))}$. \
+      - Call any element $q_alpha in Q_alpha$ a "space".
+    - At the start of the game, each player $p_i in {p_1, p_2}$ starts with a piece $z_i in {z_1, z_2}$ on space $cal(S)$. Each turn $t_j$, each player of the game spins a spinner that has an equal probability of landing on any number in the set $beta = {1, 3/2, dots, 3}$. Call any $b in beta$ an "input" or "spin-result". Furthermore, if the player spins a number that is not whole, they must flip a coin; if heads is flipped, $1/2$ is added to the spin-result; tails, $1/2$ is subtracted from the spin-result.
+    - At the end of each turn $t_j$, each player $p_i$ must move their piece $z_i$ to the space $q_(alpha, t+1)$ indicated by the function on their piece's current space and spin-result $b_(t, i)$.
+      $ delta(q_(alpha, t), b_(t, i)) = q_(alpha, t + 1) = cases(
+        R_Q (cal(q)) "if" cal(q) <= 5 "and" cal(q) eq.not 3,
+        cal(S) "if" cal(q) = 3,
+        q_(alpha, t) "else") "where" cal(q) = R^(-1)(q_(alpha, t)) + b_(t, i)
+      $
+    - This can be represented by the probabilistic automaton $sans("PA") = (sans("NFA"), P, q_0 ')$. Here $sans("NFA") = (Q, Sigma, delta, q_0, F)$ where
+      $$$
+      & Q "is the set of spaces on the game board" \
+      & Sigma = beta \
+      & delta "is as defined above" \
+      & q_0 = cal(S) \
+      & F = {cal(F)}
+      $$$
+    - #automaton(
+        (
+          q0: (q0: (2.5, 3), q1: (1, 1.5), q2: (1.5, 2, 2.5)),
+          q1: (q0: (1.5, 2, 2.5), q2: (1, 1.5), q3: (2.5, 3)),
+          q2: (q0: (1, 1.5), q3: (1.5, 2, 2.5), q4: (2.5, 3)),
+          q3: (q3: (1.5, 2, 2.5, 3), q4: (1, 1.5)),
+          q4: (q4: (1, 1.5, 2, 2.5, 3))
+        ),
+        labels: (
+          q0: "S",
+          q1: "A",
+          q2: "B",
+          q3: "C",
+          q4: "F"
+        ),
+        layout: layout.custom.with(positions:(..) => (
+          q0: (0, 0),
+          q1: (2, 2),
+          q2: (4, 0),
+          q3: (6, 2),
+          q4: (8, 0),
+        )),
+        style: (
+          q1-q2: (curve: 0),
+          q0-q1: (curve: 0),
+          q2-q3: (curve: 0),
+          q3-q4: (curve: 0),
+          q2-q4: (curve: 0),
+          q0-q2: (curve: -1.5, label: (dist: -0.33))          
+        )
+      )
     $ (Q, Sigma, delta, q_0, F) $ \
     $Q$: spaces to land on (excluding redirection spaces) \
     $Sigma$:  \
