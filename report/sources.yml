@@ -5,3 +5,11 @@ prob_auto:
     url:
         value: https://en.wikipedia.org/wiki/Probabilistic_automaton
         date: 2024-12-06
+
+stoch_mat:
+    type: Web
+    title: Stochastic matrix
+    author: Wikipedia contributors
+    url:
+        value: https://en.wikipedia.org/wiki/Stochastic_matrix
+        date: 2024-12-06
